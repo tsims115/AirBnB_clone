@@ -5,20 +5,21 @@
 import json
 import os
 
+
 class FileStorage:
     """Serializes instances to a
     JSON file and deserializes JSON file to instances"""
     def __init__(self):
         self.__file_path = 'file.json'
         self.__objects = {}
-    
+
     def all(self):
         """Returns dictionary __objects"""
         return self.__objects
 
     def new(self, obj):
         """Sets in __objects the obj with key"""
-        self.__objects[obj.id] = obj
+        self.__objects[type(obj).__name__ + "." + obj.id] = obj
 
     def save(self):
         """Serializes __objects to the JSON file"""
@@ -40,4 +41,3 @@ class FileStorage:
                 data = json.load(f)
             for k, v in data.items():
                 self.__objects[k] = BaseModel(**v)
-            
