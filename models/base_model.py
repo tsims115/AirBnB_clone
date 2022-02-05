@@ -13,8 +13,6 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Instanciates with current time and unique ID"""
         if kwargs:
-            print("kwargs below")
-            print(kwargs)
             for k, v in kwargs.items():
                 if k == 'created_at' or k == 'updated_at':
                     v = datetime.fromisoformat(v)
