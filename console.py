@@ -23,7 +23,10 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to exit the program\n"""
         return True
 
-    do_EOF = do_quit
+    def do_EOF(self, arg):
+        """EOF command for end of file"""
+        print()
+        return True
 
     def do_create(self, arg):
         """Creates new instance of BaseModel\n"""
