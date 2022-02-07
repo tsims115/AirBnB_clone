@@ -15,7 +15,7 @@ class HBNBCommand(cmd.Cmd):
     interpreter for AirBnb clone
     """
 
-    intro = 'Welcome to the HBNB shell.   Type help or ? to list commands.\n'
+    intro = 'Welcome to the HBNB shell.   Type help or ? to list commands.'
     prompt = '(hbnb) '
     file = None
 
