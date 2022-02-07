@@ -26,6 +26,14 @@ class HBNBCommand(cmd.Cmd):
         print()
         return True
 
+    def emptyline(self):
+        """
+        Called when empty line given
+        """
+        if self.lastcmd:
+            self.lastcmd = ""
+            return self.onecmd('\n')
+
     def do_create(self, arg):
         """Creates new instance of BaseModel\n"""
         classes = storage.classes()
