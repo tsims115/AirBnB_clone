@@ -40,7 +40,7 @@ class HBNBCommand(cmd.Cmd):
         elif arg in classes.keys():
             obj = classes[arg]()
             obj.save()
-            print(classes.id)
+            print(obj.id)
         else:
             print("** class doesn't exist **")
 
