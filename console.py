@@ -27,22 +27,24 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         """Creates new instance of BaseModel\n"""
+        classes = storage.classes()
         if arg == "":
             print('** class name missing **')
-        elif arg == "BaseModel":
-            obj = BaseModel()
+        elif arg in classes.keys():
+            obj = classes[arg]()
             obj.save()
         else:
             print("** class doesn't exist **")
 
     def do_show(self, *args):
         """Prints string representation of instance\n"""
+        classes = storage.classes()
         if args[0] == '':
             print("** class name missing **")
             return
         string = args[0]
         arg = string.split(' ')
-        if arg[0] != "BaseModel":
+        if arg[0] not in classes.keys():
             print("** class doesn't exist **")
             return
         if len(arg) == 1:
@@ -57,12 +59,13 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, *args):
         """Deletes an instance based on the class name and id"""
+        classes = storage.classes()
         if args[0] == '':
             print("** class name missing **")
             return
         string = args[0]
         arg = string.split(' ')
-        if arg[0] != "BaseModel":
+        if arg[0] not in classes.keys():
             print("** class doesn't exist **")
             return
         if len(arg) == 1:
@@ -78,6 +81,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, *args):
         """Prints all string representation of
         all instances based or not on the class name"""
+        classes = storage.classes()
         all_objs = storage.all()
         list_objs = []
         if args[0] == '':
@@ -85,7 +89,7 @@ class HBNBCommand(cmd.Cmd):
                 list_objs.append(str(v))
             print(list_objs)
             return
-        if args[0] != "BaseModel":
+        if args[0] not in classes.keys():
             print("** class doesn't exist **")
             return
         for k, v in all_objs.items():
@@ -97,12 +101,13 @@ class HBNBCommand(cmd.Cmd):
         """Updates an instance based on the class
         name and id"""
         all_objs = storage.all()
+        classes = storage.classes()
         if args[0] == '':
             print("** class name missing **")
             return
         string = args[0]
         arg = string.split(' ')
-        if arg[0] != "BaseModel":
+        if arg[0] not in classes.keys():
             print("** class doesn't exist **")
             return
         if len(arg) == 1:
@@ -118,17 +123,14 @@ class HBNBCommand(cmd.Cmd):
         if len(arg) == 3:
             print("** value missing **")
             return
-        obj = all_objs[string]
         try:
             a = float(arg[3])
             if a.is_integer():
                 a = int(a)
         except (TypeError, ValueError):
-            """setattr(obj, arg[2], str(arg[3]))"""
             setattr(all_objs[string], arg[2], str(arg[3]))
             storage.save()
             return
-        """setattr(obj, arg[2], a)"""
         setattr(all_objs[string], arg[2], a)
         storage.save()
         return
