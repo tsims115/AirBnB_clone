@@ -15,9 +15,7 @@ class HBNBCommand(cmd.Cmd):
     interpreter for AirBnb clone
     """
 
-    intro = 'Welcome to the HBNB shell.   Type help or ? to list commands.'
     prompt = '(hbnb) '
-    file = None
 
     def do_quit(self, arg):
         """Quit command to exit the program\n"""
