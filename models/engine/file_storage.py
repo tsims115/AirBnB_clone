@@ -27,7 +27,7 @@ class FileStorage:
         for k, v in self.__objects.items():
             new_dict[k] = v.to_dict()
         json_string = json.dumps(new_dict)
-        with open(self.__file_path, 'w+', encoding="utf-8") as f:
+        with open(self.__file_path, 'w+') as f:
             data = f.read()
             f.seek(0)
             f.write(json_string)
@@ -57,7 +57,7 @@ class FileStorage:
         """Deserializes the JSON file to __objects"""
         classes = self.classes()
         if os.path.exists(self.__file_path):
-            with open(self.__file_path, 'r', encoding="utf-8") as f:
+            with open(self.__file_path, 'r') as f:
                 data = json.load(f)
             for k, v in data.items():
                 class_name = v["__class__"]
