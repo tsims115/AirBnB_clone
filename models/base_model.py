@@ -8,7 +8,7 @@ from models import storage
 
 
 class BaseModel:
-    """Class BaseModel"""
+    """Class BaseModel which will serve as a base for all other classes"""
 
     def __init__(self, *args, **kwargs):
         """Instanciates with current time and unique ID"""
