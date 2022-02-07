@@ -35,11 +35,12 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, arg):
         """Creates new instance of BaseModel\n"""
         classes = storage.classes()
-        if arg == "":
+        if arg == "" or arg is None:
             print('** class name missing **')
         elif arg in classes.keys():
             obj = classes[arg]()
             obj.save()
+            print(classes.id)
         else:
             print("** class doesn't exist **")
 
