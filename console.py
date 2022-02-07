@@ -30,9 +30,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Called when empty line given
         """
-        if self.lastcmd:
-            self.lastcmd = ""
-            return self.onecmd('\n')
+        pass
 
     def do_create(self, arg):
         """Creates new instance of BaseModel\n"""
