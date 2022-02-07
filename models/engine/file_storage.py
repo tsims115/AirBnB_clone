@@ -33,11 +33,32 @@ class FileStorage:
             f.write(json_string)
             f.truncate()
 
+    def classes(self):
+        from models.base_model import BaseModel
+        from models.user import User
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.place import Place
+        from models.review import Review
+
+        classes = {
+            "BaseModel" : BaseModel,
+            "User" : User,
+            "State" : State,
+            "City" : City,
+            "Amenity" : Amenity,
+            "Place" : Place,
+            "Review" : Review
+            }
+        return classes
+
     def reload(self):
         """Deserializes the JSON file to __objects"""
-        from models.base_model import BaseModel
+        classes = self.classes()
         if os.path.exists(self.__file_path):
             with open(self.__file_path, 'r') as f:
                 data = json.load(f)
             for k, v in data.items():
-                self.__objects[k] = BaseModel(**v)
+                class_name = v["__class__"]
+                self.__objects[k] = classes[class_name](**v)
