@@ -47,7 +47,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, *args):
         """Prints string representation of instance\n"""
         classes = storage.classes()
-        if args[0] == '':
+        if args[0] == '' or args[0] is None:
             print("** class name missing **")
             return
         string = args[0]
@@ -68,7 +68,7 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, *args):
         """Deletes an instance based on the class name and id\n"""
         classes = storage.classes()
-        if args[0] == '':
+        if args[0] == '' or args[0] is None:
             print("** class name missing **")
             return
         string = args[0]
@@ -109,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
         """Updates an instance based on the class name and id\n"""
         all_objs = storage.all()
         classes = storage.classes()
-        if args[0] == '':
+        if args[0] == '' or args[0] is None:
             print("** class name missing **")
             return
         string = args[0]
@@ -140,7 +140,6 @@ class HBNBCommand(cmd.Cmd):
             return
         setattr(all_objs[string], arg[2], a)
         storage.save()
-        return
 
 
 if __name__ == '__main__':
