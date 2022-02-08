@@ -53,9 +53,5 @@ class TestFileStorageClass(unittest.TestCase):
         num = "BaseModel" + "." + self.model.id
         self.assertTrue(num in data.keys())
 
-    def test_attributes(self):
-        with self.assertRaises(AttributeError):
-            FileStorage.__objects
-
 if __name__ == "__main__":
     unittest.main()
