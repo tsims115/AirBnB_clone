@@ -134,6 +134,8 @@ class HBNBCommand(cmd.Cmd):
             if a.is_integer():
                 a = int(a)
         except (TypeError, ValueError):
+            if "\"" in arg[3]:
+                arg[3] = arg[3].replace("\"", "")
             setattr(all_objs[string], arg[2], str(arg[3]))
             storage.save()
             return
