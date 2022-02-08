@@ -55,7 +55,7 @@ class TestFileStorageClass(unittest.TestCase):
 
     def test_attributes(self):
         with self.assertRaises(AttributeError):
-            self.ex1.__objects
+            FileStorage.__objects
 
 if __name__ == "__main__":
     unittest.main()
