@@ -85,6 +85,7 @@ class HBNBCommand(cmd.Cmd):
             del all_objs[string]
             storage.save()
             return
+        print("** no instance found **")
 
     def do_all(self, *args):
         """Prints string representation of all\n"""
