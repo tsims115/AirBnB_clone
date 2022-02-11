@@ -47,6 +47,9 @@ $ ./console
 (hbtn) create BASEMODEL
 
 e6fca61d-f937-427c-8b33-3f52cc10aba7
+
 $ ./console
+
 (hbtn) all
+
 (Lists all objects. Can specify which model)
