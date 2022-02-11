@@ -42,6 +42,7 @@ EOF  all  create  destroy  help  quit  show  update
 
 $ ./console
 (hbtn) create BASEMODEL
+
 e6fca61d-f937-427c-8b33-3f52cc10aba7
 $ ./console
 (hbtn) all
