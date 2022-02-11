@@ -33,6 +33,16 @@ show - Prints string representation of singular instance. Requires an argument c
 update - Allows an update to be made to an instance. Requires 3 arguments: classname.id attribute value (ie. BaseModel.123456 name "Tom")
 This updates or creates a new key/value pair within the instance.
 ### Examples
-ex 1
-ex 2
-ex 3
+$ ./console
+(hbtn) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+
+$ ./console
+(hbtn) create BASEMODEL
+e6fca61d-f937-427c-8b33-3f52cc10aba7
+$ ./console
+(hbtn) all
+(Lists all objects. Can specify which model)
