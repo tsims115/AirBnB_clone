@@ -34,10 +34,13 @@ update - Allows an update to be made to an instance. Requires 3 arguments: class
 This updates or creates a new key/value pair within the instance.
 ### Examples
 $ ./console
+
 (hbtn) help
 
 Documented commands (type help <topic>):
-========================================
+
+"========================================"
+
 EOF  all  create  destroy  help  quit  show  update
 
 $ ./console
