@@ -1,12 +1,13 @@
 .filters {
+    position: relative;
     color:white;
-    display: inline-block;
     height: 70px;
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
     display: flex;
 }
+
 .filters button {
     font-size: 18px;
     color: #FFFFFF;
@@ -31,37 +32,43 @@
     height: 100%;
     width: 25%;
     text-align: left;
-    margin-left: 5%;
+}
+
+.filters h3, .filters h4 {
+    margin-left: 7%;
 }
 
 .filters h3{
     font-weight: 600;
     margin-bottom: 0;
-    text-align: left;
 }
+
 .filters h4{
     font-weight: 400;
     font-size: 14px;
     margin-top: 0;
 }
 
-.popover li h2 {
-    font-size: 16px;
-    margin-bottom: 0;
-}
-
-.filters div:hover .popover{
-    display: block;
-}
-
-
 .popover {
+    width: auto;
     background-color: #FAFAFA;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
     padding: 16px;
     display: none;
 }
-.popover > * {
+
+.popover h2 {
+    font-size: 16px;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.popover ul {
+    padding-left: 22px;
+}
+
+.filters div:hover .popover, .popover ul{
+    display: block;
     list-style-type: none;
 }
