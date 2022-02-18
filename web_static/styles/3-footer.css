@@ -1,6 +1,6 @@
 footer {
+    position: relative;
     margin: auto;
-    position: absolute;
     bottom: 0;
     background-color: white;
     height: 60px;
